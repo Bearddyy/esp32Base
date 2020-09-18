@@ -13,7 +13,8 @@ U8X8_SSD1306_128X64_NONAME_SW_I2C u8x8(DISPLAY_CLOCK, DISPLAY_MOSI, DISPLAY_RESE
 void displayInit() 
 {
   u8x8.begin();
-  u8x8.setFont(u8x8_font_chroma48medium8_r);
+  //u8x8.setFont(u8x8_font_chroma48medium8_r);
+  u8x8.setFont(u8x8_font_5x8_r);
   displayTest();
 }
 
@@ -44,7 +45,7 @@ void displayRunning(void)
   runningText[7] = runningIndex > 0 ? '.' : ' ';
   runningText[8] = runningIndex > 1 ? '.' : ' ';
   runningText[9] = runningIndex > 2 ? '.' : ' ';
-  displayChars(runningText, false);
+  //displayChars(runningText, false);
 
   runningIndex > 2 ? runningIndex = 0: runningIndex++;
 }
@@ -53,4 +54,13 @@ void displayRunning(void)
 void displayClear(void)
 {
   u8x8.clearDisplay();
+}
+
+void displayPos(const char *s, uint8_t x, uint8_t y, bool clear)
+{
+  if( clear == true )
+  {
+    u8x8.clearDisplay();
+  }
+  u8x8.drawString(x, y, s);
 }

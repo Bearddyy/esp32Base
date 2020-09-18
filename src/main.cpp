@@ -8,8 +8,9 @@
 // Local includes
 #include "display.h"
 #include "wifiOTA.h"
+#include "gps.h"
 
-#define LOOP_INTERVAL 500
+#define LOOP_INTERVAL 1000
 
 
 void setup() {
@@ -17,6 +18,7 @@ void setup() {
   printf("Started\n\r");
   displayInit();
   wifiOTAInit();
+  gpsInit();
 
   printf("Setup Completed\n\r");
   displayChars("Complete.", true);
@@ -39,6 +41,7 @@ void loop() {
   if (currentMillis - previousMillis >= LOOP_INTERVAL) 
   {
     //displayRunning();
+  	gpsTick();
 
     previousMillis = currentMillis;
   }
@@ -46,4 +49,5 @@ void loop() {
 
   //Must be called repeatedly
   wifiOTACheck();
+  gpsFastTick();
 }
