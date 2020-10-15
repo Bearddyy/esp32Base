@@ -6,6 +6,7 @@
 
 
 void displayInit(void);
+void displayPowerDown(void);
 void displayTest(void);
 void displayChars(const char *s, bool clear = true);
 void displayString(String s, bool clear = true);

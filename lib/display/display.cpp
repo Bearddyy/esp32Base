@@ -18,6 +18,12 @@ void displayInit()
   displayTest();
 }
 
+void displayPowerDown() 
+{
+  u8x8.setPowerSave(1);
+  digitalWrite(DISPLAY_RESET, LOW); //reset display
+}
+
 void displayTest(void) 
 {
   u8x8.drawString(0, 0, "Started");

@@ -29,6 +29,8 @@ void setup() {
   ArduinoOTA.onStart([]()
   {
     displayChars("Programing...", true);
+    sleep(1);
+    displayPowerDown();
   });
 
 }
@@ -36,7 +38,7 @@ void setup() {
 void loop() {
   static unsigned long previousMillis = 0;
   // put your main code here, to run repeatedly:
-  //Serial.print("Hello?\r\n");
+  
   unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= LOOP_INTERVAL) 
   {

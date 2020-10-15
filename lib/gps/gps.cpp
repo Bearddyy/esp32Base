@@ -41,6 +41,7 @@ void gpsFastTick(void)
     {
             char inp = ss.read();
             gps.encode(inp);
+            //Serial.print(inp);
     }
 }
 
